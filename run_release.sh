@@ -7,5 +7,5 @@ then
     exit 1
 fi
 
-pyupdater build --app-version=$VERSION main.spec && \
+pyupdater build --app-version=$VERSION nix64.spec && \
     pyupdater pkg --process --sign
