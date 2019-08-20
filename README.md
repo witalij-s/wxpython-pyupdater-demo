@@ -23,24 +23,46 @@ pip install -U \
 4. Enter projectname: _maindemo_ | Company: _maindemo Ltd_ | Url: _localhost:8000_ | Backup URL: _N_ | Enable patch update: _N_ | Use current directory: _Y_
 5. Import the keys: `pyupdater keys -i`
 6. Now create a spec file for future builds: `pyupdater make-spec -w run.py`
+7. Your project folder should now contain a `/nix64.spec` file.
+8. Next you can start to build a release with the generated spec.
+
 
 ## Build / Release
 
-1. `pyupdater build --app-version=1.0.0 nix64.spec`
-2. `pyupdater pkg --process --sign`
-
-## Notes
-
-- You almost always want to use wx.ID_ANY or another standard ID (v2.8) provided by wxWidgets.
-- List of Events: https://wiki.wxpython.org/ListOfEvents
-- List of IDs: https://docs.wxwidgets.org/2.8.12/wx_stdevtid.html
+1. Open the file `wxpythonupdater/__init__.py` and increase the version to **1.0.0**.
+2. Create a release: `pyupdater build --app-version=1.0.0 nix64.spec`
+3. Sign the release: `pyupdater pkg --process --sign`
+4. In `pyu-data/deploy` is now version 1.0.0 and a `keys.tar.gz` and a `versions.tar.gz`.
+5. Your release is ready and depoyed on your machine
+6. Now start a fileserver for testing.
 
 
 ## Fileserver for Uploading and Testing Updates
 
 Start a fileserver so you are able to check for updates.
-Run: `./run_fileserver`
+1. Run: `./run_fileserver`
+2. Open your browser and navigate to: `localhost:8000`
+3. Download and extract the release
+4. Execute the demo application: `./maindemo`
 
+
+## One-Click Start of you Application
+
+This enables a file for double click execution. Test on Linux Mint:
+1. Open the `nix64.spec`
+2. Add the `Start.desktop` file to the project like the following
+```
+...
+
+added_files = [('assets/Start.desktop', '.')]
+
+a = Analysis(['/home/witalij/Git/wx-python/run.py'],
+             pathex=['/home/witalij/Git/wx-python', u'/home/witalij/Git/wx-python'],
+             binaries=[],
+             datas=added_files,
+...
+```
+3. Now build and sign.
 
 ## Contributions
 
