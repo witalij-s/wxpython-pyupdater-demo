@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=mate
+Icon[en_US]=mate
+Name[en_US]=Start
+Exec=sh -e -c "exec \\"\\$(dirname \\"\\$0\\")/../maindemo/maindemo\\"" %k
+Name=Start
