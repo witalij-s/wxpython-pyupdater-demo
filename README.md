@@ -56,13 +56,14 @@ This enables a file for double click execution. Test on Linux Mint:
 
 added_files = [('assets/Start.desktop', '.')]
 
-a = Analysis(['/home/witalij/Git/wx-python/run.py'],
-             pathex=['/home/witalij/Git/wx-python', u'/home/witalij/Git/wx-python'],
+a = Analysis(['/home/<username>/Git/wx-python/run.py'],
+             pathex=['/home/<username>/Git/wx-python', u'/home/<username>/Git/wx-python'],
              binaries=[],
              datas=added_files,
 ...
 ```
-3. Now build and sign.
+3. Replace `<username>` with your linux username.
+4. Now build and sign.
 
 ## Contributions
 
