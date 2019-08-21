@@ -3,7 +3,6 @@
 A demo project using pyupdater and wxPython for creating a self updating
 linux application.
 
-
 ## Installation
 
 Ubuntu 16.04 & Python2.7:
@@ -70,3 +69,6 @@ a = Analysis(['/home/<username>/Git/wx-python/run.py'],
 This project was created with the content of the following ressources:
 - An example pyupdater project: https://github.com/wettenhj/pyupdater-wx-demo
 - Tutorials from the official wxpython documentation: https://wxpython.org/
+
+
+[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
